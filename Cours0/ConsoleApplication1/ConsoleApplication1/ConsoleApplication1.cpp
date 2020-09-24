@@ -5,15 +5,28 @@
 #include <string>
 #include "Vec2.hpp"
 #include "Vec3.hpp"
+#include "Vec2T.h"
+#include "Vec3T.h"
+#include "Arr.h"
 using namespace std;
 
-
+void SubFunction()
+{
+    Arr<int> foo(4);
+    cout << foo.Get(0) << endl;
+    foo.Get(0) = 33;
+    cout << foo.Get(0) << endl;
+    cout << foo.Set(0) << endl;
+    //delete foo;
+}
 
 
 
 int main()
 {
-   // std::cout << "Hello World!\n";
+    SubFunction();
+    cout << endl;
+   /*// std::cout << "Hello World!\n";
    // std::cout << "Hello World!" << std::endl;
    // printf("Hello World!\n");
     printf("0\n");
@@ -39,12 +52,12 @@ int main()
     printf("x=%f y=%f\n", alpha.x, alpha.y);
    
 
-    Vec2 f1(66, 37);
+    Vec2 f1(66, 37);                 
     printf("x=%f y=%f\n", f1.x, f1.y);
 
     Vec2 f12 = alpha.add(f1);
     printf("x=%f y=%f\n", f12.x, f12.y);
-    auto endl = 0;
+    
 
     Vec2 sub12 = alpha.sub(f1);
     printf("x=%f y=%f\n", sub12.x, sub12.y);
@@ -54,7 +67,7 @@ int main()
 
     Vec2 div12 = alpha.div(f1);
     printf("x=%f y=%f\n", div12.x, div12.y);
-
+    
     Vec3 g1;
     g1.x = 10;
     g1.y = 10;
@@ -75,7 +88,49 @@ int main()
 
     Vec3 gdiv12 = g1.div(g2);
     printf("x=%f y=%f z=%f\n", gdiv12.x, gdiv12.y, gdiv12.z);
+    
 
+    Vec2T<float> t0(45, 4);
+    Vec2T<float> t1(4, 4);
+    auto tres = t1.add(t0);
+
+    cout << to_string(tres.x) << " " << to_string(tres.y) << endl;
+
+    Vec3T<float> s0(45, 4, 1);
+    Vec3T<float> s1(4, 4, 2);
+    auto sres = s1.mul(s0);
+    printf("x=%f y=%f z=%f\n", sres.x, sres.y, sres.z);
+
+    Vec3T<char> vc0('a', 'b', 'c');
+    Vec3T<char> vc1('d', 'e', 'f');
+    auto vres = vc1.mul(vc0);
+
+    cout << string(1, 'a') << endl;
+    cout << string(1, vres.x) << " " << string(1, vres.y) << " " << string(1, vres.z) << endl;
+
+
+
+    int tableau[] = { 0,1,4,1,2,3 };
+    int size = sizeof(tableau) / sizeof(int);    //Usefull
+    for (int i = 0; i < size; i++)
+    {
+        cout << tableau[i] << " ";
+    }
+    int* c0 = tableau;
+    int* c1 = &(tableau[0]); //same
+    int valC = *c0++;
+    cout << endl;
+
+    Vec2 p1(3, 4);            //Alloué sur la pile
+    Vec2 p2(1, 1);
+    p1.incr(&p2);
+    cout << to_string(p2.x) << endl;
+
+   // Vec2* pPtr = new Vec2(66);      //Alloué sur le tas
+    //p1.incr((Vec2*));
+
+    Vec2 v66 = Vec2(66);
+    p1.incr(v66);  */
 }
 
 

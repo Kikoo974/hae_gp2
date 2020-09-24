@@ -1,5 +1,8 @@
 #pragma once
 
+#include <string>
+using namespace std;
+
 class Vec2 {
 public:          //MUY IMPORTANTE
     float x = 0.0f;
@@ -35,6 +38,9 @@ public:          //MUY IMPORTANTE
         xy.y = this->y / v.y;
         return xy;
     }
-
+    ~Vec2()
+    {
+        cout << "supprimé" << to_string(x) << endl;
+    }
     
 };  //MUY++
